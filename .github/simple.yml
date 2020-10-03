@@ -1,0 +1,27 @@
+name: shell commands
+
+on: [push]
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Hello World"
+      - name: multiline script first
+        run: |
+          node -v
+          npm -v  
+      - name: python commands
+        run: |
+          import platform 
+          print (platform.processor()) 
+        shell: python  
+  run-windows-command:
+    runs-on: windows-latest
+    steps:
+      - name: Directory Powershell
+        run: Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: Bash
